@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Admin</title>
+    <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h1>Admin</h1>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profiles.html" class="active">Profil</a>
+            <a href="akun.html">Akun</a>
+            <a href="experience.html">Experience</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="../../index.html">Lihat Website</a>
+        </nav>
+    </aside>
+    <main class="content">
+        <header class="page-header">
+            <h2>Profil</h2>
+            <button id="logoutBtn">Logout</button>
+        </header>
+
+        <form id="profileForm" class="panel form-grid">
+            <label>Nama Lengkap <input id="nama_lengkap" required></label>
+            <label>Nama Panggilan <input id="nama_panggilan"></label>
+            <label>Tempat Lahir <input id="tempat_lahir"></label>
+            <label>Tanggal Lahir <input id="tanggal_lahir" type="date"></label>
+            <label>Email <input id="email" type="email" required></label>
+            <label>Telepon <input id="telepon"></label>
+            <label>Universitas <input id="universitas"></label>
+            <label>Fakultas <input id="fakultas"></label>
+            <label>Program Studi <input id="prodi"></label>
+            <label>Semester <input id="semester"></label>
+            <label>Alamat <textarea id="alamat"></textarea></label>
+            <label>URL Foto <input id="foto_url" placeholder="https://..."></label>
+            <button type="submit">Simpan Profil</button>
+            <p id="profileMessage" class="message"></p>
+        </form>
+    </main>
+    <script src="js/base.js"></script>
+    <script src="js/profiles.js"></script>
+</body>
+</html>

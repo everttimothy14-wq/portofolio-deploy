@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akun Admin</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/akun.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h1>Admin</h1>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profiles.html">Profil</a>
+            <a class="active" href="akun.html">Akun</a>
+            <a href="experience.html">Experience</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="../../index.html">Lihat Website</a>
+        </nav>
+    </aside>
+    <main class="content">
+        <h2>Akun</h2>
+        <form id="createAkunForm" class="panel form-grid">
+            <h3>Buat Akun Baru</h3>
+            <label>Username Baru <input id="newUsername" required></label>
+            <label>Password Baru <input id="createPassword" type="password" required></label>
+            <label>Role
+                <select id="newRole">
+                    <option value="admin">admin</option>
+                    <option value="user">user</option>
+                </select>
+            </label>
+            <button type="submit">Buat Akun</button>
+            <p id="createAkunMessage" class="message"></p>
+        </form>
+
+        <form id="akunForm" class="panel form-grid">
+            <h3>Edit Akun Saat Ini</h3>
+            <label>Username <input id="username" required></label>
+            <button type="submit">Simpan Akun</button>
+            <p id="akunMessage" class="message"></p>
+        </form>
+        <form id="passwordForm" class="panel form-grid">
+            <h3>Ganti Password</h3>
+            <label>Password Lama <input id="oldPassword" type="password" required></label>
+            <label>Password Baru <input id="newPassword" type="password" required></label>
+            <button type="submit">Ganti Password</button>
+            <p id="passwordMessage" class="message"></p>
+        </form>
+    </main>
+    <script src="js/base.js"></script>
+    <script src="js/akun.js"></script>
+</body>
+</html>

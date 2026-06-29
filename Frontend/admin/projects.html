@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Admin</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h1>Admin</h1>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profiles.html">Profil</a>
+            <a href="akun.html">Akun</a>
+            <a href="experience.html">Experience</a>
+            <a class="active" href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="../../index.html">Lihat Website</a>
+        </nav>
+    </aside>
+    <main class="content">
+        <h2>Projects</h2>
+        <form id="projectForm" class="panel form-grid">
+            <input type="hidden" id="itemId">
+            <label>Judul <input id="judul" required></label>
+            <label>Deskripsi <textarea id="deskripsi" required></textarea></label>
+            <label>URL Gambar <input id="gambar_url"></label>
+            <label>Link Project <input id="link_project"></label>
+            <button type="submit">Simpan</button>
+            <button type="button" id="resetBtn">Reset</button>
+        </form>
+        <section id="projectList" class="list"></section>
+    </main>
+    <script src="js/base.js"></script>
+    <script src="js/projects.js"></script>
+</body>
+</html>

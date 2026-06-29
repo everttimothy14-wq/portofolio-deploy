@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Admin</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="auth-page">
+    <form id="registerForm" class="auth-card">
+        <h1>Daftar Admin</h1>
+        <label>Username
+            <input id="registerUsername" type="text" autocomplete="username" required>
+        </label>
+        <label>Password
+            <input id="registerPassword" type="password" autocomplete="new-password" required>
+        </label>
+        <label>Konfirmasi Password
+            <input id="confirmPassword" type="password" autocomplete="new-password" required>
+        </label>
+        <button type="submit">Daftar</button>
+        <a class="button-link secondary" href="login.html">Kembali Login</a>
+        <p id="registerMessage" class="message"></p>
+    </form>
+    <script src="js/base.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>
