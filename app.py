@@ -39,12 +39,6 @@ def create_app():
     return app
 
 
-# ============================
-# INI WAJIB UNTUK VERCEL
-# ============================
-app = create_app()
-
-
 def register_blueprints(app):
     blueprints = (
         akun_bp,
@@ -125,6 +119,13 @@ def register_error_handlers(app):
     @app.errorhandler(500)
     def internal_error(error):
         return jsonify({'error': 'Terjadi kesalahan pada server'}), 500
+
+
+# ==================================================
+# WAJIB UNTUK VERCEL
+# LETAKKAN DI PALING BAWAH
+# ==================================================
+app = create_app()
 
 
 if __name__ == '__main__':
