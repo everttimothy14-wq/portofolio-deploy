@@ -14,7 +14,6 @@ from Backend.admin.upload import upload_bp
 from Backend.profil.profil import profil_bp
 from config import Config
 
-
 API_PREFIX = '/api'
 
 
@@ -24,14 +23,26 @@ def create_app():
         static_folder='Frontend',
         template_folder='.'
     )
+
     app.config.from_object(Config)
 
-    CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
+    CORS(
+        app,
+        resources={r"/api/*": {"origins": "*"}},
+        supports_credentials=True
+    )
+
     register_blueprints(app)
     register_frontend_routes(app)
     register_error_handlers(app)
 
     return app
+
+
+# ============================
+# INI WAJIB UNTUK VERCEL
+# ============================
+app = create_app()
 
 
 def register_blueprints(app):
@@ -52,14 +63,19 @@ def register_blueprints(app):
 
 
 def register_frontend_routes(app):
+
     def send_index():
         root_index = os.path.join(app.root_path, 'index.html')
         frontend_index = os.path.join(app.root_path, 'Frontend', 'index.html')
 
         if os.path.exists(root_index):
             return send_from_directory(app.root_path, 'index.html')
+
         if os.path.exists(frontend_index):
-            return send_from_directory(os.path.join(app.root_path, 'Frontend'), 'index.html')
+            return send_from_directory(
+                os.path.join(app.root_path, 'Frontend'),
+                'index.html'
+            )
 
         return 'Error: index.html tidak ditemukan', 404
 
@@ -70,11 +86,17 @@ def register_frontend_routes(app):
 
     @app.route('/admin/<path:filename>')
     def admin_pages(filename):
-        return send_from_directory(os.path.join(app.root_path, 'Frontend', 'admin'), filename)
+        return send_from_directory(
+            os.path.join(app.root_path, 'Frontend', 'admin'),
+            filename
+        )
 
     @app.route('/profil/<path:filename>')
     def profil_pages(filename):
-        return send_from_directory(os.path.join(app.root_path, 'Frontend', 'profil'), filename)
+        return send_from_directory(
+            os.path.join(app.root_path, 'Frontend', 'profil'),
+            filename
+        )
 
     @app.route('/favicon.ico')
     def favicon():
@@ -86,6 +108,7 @@ def register_frontend_routes(app):
 
 
 def register_error_handlers(app):
+
     @app.errorhandler(404)
     def not_found(error):
         if request.path.startswith(f'{API_PREFIX}/'):
@@ -93,6 +116,7 @@ def register_error_handlers(app):
 
         if request.accept_mimetypes.best == 'text/html':
             index_path = os.path.join(app.root_path, 'index.html')
+
             if os.path.exists(index_path):
                 return send_from_directory(app.root_path, 'index.html')
 
@@ -104,5 +128,8 @@ def register_error_handlers(app):
 
 
 if __name__ == '__main__':
-    app = create_app()
-    app.run(debug=Config.DEBUG, host='0.0.0.0', port=5000)
+    app.run(
+        debug=Config.DEBUG,
+        host='0.0.0.0',
+        port=5000
+    )
